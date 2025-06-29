@@ -1,85 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TechnoSpark Newsroom</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  <style>
-    body { font-family:'Segoe UI', sans-serif; background:#f4f4f4; }
-    .carousel-item img{height:400px; object-fit:cover;}
-    .quiz-section{background:#fff3cd;padding:30px;border-radius:12px;}
-    .footer{background:#333;color:#fff;padding:30px 0;}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechnoSpark Newsroom</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5; /* Light gray background */
+        }
+        .article-card {
+            background-color: #ffffff; /* White card background */
+            border-radius: 1rem; /* More rounded corners */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Soft shadow */
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .article-card:hover {
+            transform: translateY(-5px); /* Lift effect on hover */
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12); /* Slightly stronger shadow on hover */
+        }
+        .article-image {
+            border-top-left-radius: 1rem;
+            border-top-right-radius: 1rem;
+        }
+        /* Styles for the reveal effect */
+        .reveal-truth .article-image {
+            content: url('https://placehold.co/600x350/22C55E/FFFFFF?text=TRUTH+NEWS'); /* Green for Truth */
+        }
+        .reveal-fake .article-image {
+            content: url('https://placehold.co/600x350/EF4444/FFFFFF?text=FAKE+NEWS'); /* Red for Fake */
+        }
+        .reveal-text {
+            display: block; /* Show text when revealed */
+            margin-top: 10px;
+            font-weight: bold;
+            text-align: center;
+            font-size: 1.25rem;
+            color: #1F2937;
+        }
+    </style>
 </head>
-<body>
+<body class="text-gray-800">
+    <!-- Header Section -->
+    <header class="bg-gradient-to-r from-blue-600 to-purple-700 text-white p-6 md:p-8 shadow-lg">
+        <div class="container mx-auto text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-2">TechnoSpark Newsroom</h1>
+            <p class="text-lg md:text-xl opacity-90">Where Reality Blurs with Imagination</p>
+        </div>
+    </header>
 
-<nav class="navbar navbar-expand-lg sticky-top shadow-sm bg-white">
-  <div class="container">
-    <a class="navbar-brand" href="#">TechnoSpark Newsroom</a>
-    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav"><span class="navbar-toggler-icon"></span></button>
-    <div class="collapse navbar-collapse" id="nav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="#">World</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Tech</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Science</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Opinion</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+    <!-- Main Content Section - News Articles -->
+    <main class="container mx-auto p-4 md:p-8 py-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="news-articles-container">
 
-<!-- Hero Carousel -->
-<div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="https://www.fnfresearch.com/Content/UploadedImages/india-renewable-energy-certificate-size.png" alt="Renewable Energy India" class="d-block w-100" />
-      <div class="carousel-caption"><h5>India's Renewable Energy Investment Surges</h5></div>
-    </div>
-    <div class="carousel-item">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Parabolic_solar_dish.jpg" alt="Renewable Energy" class="d-block w-100" />
-      <div class="carousel-caption"><h5>India Tops Renewable Investment Charts</h5></div>
-    </div>
-  </div>
-</div>
+            <!-- Article 1: WWE-Style Wedding Interruption in Las Vegas - FAKE -->
+            <div class="article-card overflow-hidden" data-status="fake">
+                <img src="https://placehold.co/600x350/A3E635/1F2937?text=Wedding+Disruption" alt="Wedding Disruption Image" class="w-full h-48 object-cover article-image">
+                <div class="p-6">
+                    <h2 class="text-2xl font-semibold mb-3">WWE-Style Wedding Interruption in Las Vegas</h2>
+                    <p class="text-gray-600 mb-4 text-justify">A brawling guest disrupted a live wedding, shouting “Marriage is a sham!” and sparking a WWE-style chaos scene.</p>
+                    <a href="#" class="text-blue-600 hover:text-blue-800 font-medium transition-colors duration-200">Read More &rarr;</a>
+                </div>
+            </div>
 
-<div class="container my-5">
-  <div class="row g-4">
-    <!-- Articles Here -->
-  </div>
-</div>
+            <!-- Article 2: Ant Trafficking Gang Busted - TRUTH -->
+            <div class="article-card overflow-hidden" data-status="truth">
+                <img src="https://placehold.co/600x350/60A5FA/1F2937?text=Ant+Trafficking" alt="Ant Trafficking Image" class="w-full h-48 object-cover article-image">
+                <div class="p-6">
+                    <h2 class="text-2xl font-semibold mb-3">Ant Trafficking Gang Busted</h2>
+                    <p class="text-gray-600 mb-4 text-justify">Two 19-year-old Belgians were caught smuggling 5,000 queen ants out of Kenya—each fined $7,700 or facing jail time.</p>
+                    <a href="#" class="text-blue-600 hover:text-blue-800 font-medium transition-colors duration-200">Read More &rarr;</a>
+                </div>
+            </div>
 
-<div class="container quiz-section">
-  <h3 class="text-center">🧠 Guess the Fake News</h3>
-  <p class="text-center">Which numbers are FAKE? e.g., 1,3,5,7</p>
-  <input id="guessInput" class="form-control mb-3" placeholder="Your guess..." />
-  <button onclick="checkQuiz()" class="btn btn-dark w-100">Submit Guess</button>
-  <p id="quizMsg" class="mt-2 text-center"></p>
-</div>
+            <!-- Article 3: AI Divorce Triggered by Cheating Spouse - FAKE -->
+            <div class="article-card overflow-hidden" data-status="fake">
+                <img src="https://placehold.co/600x350/FACC15/1F2937?text=AI+Divorce" alt="AI Divorce Image" class="w-full h-48 object-cover article-image">
+                <div class="p-6">
+                    <h2 class="text-2xl font-semibold mb-3">AI Divorce Triggered by Cheating Spouse</h2>
+                    <p class="text-gray-600 mb-4 text-justify">In Greece, one spouse reportedly used AI-generated evidence to file for divorce over infidelity, stirring legal debate.</p>
+                    <a href="#" class="text-blue-600 hover:text-blue-800 font-medium transition-colors duration-200">Read More &rarr;</a>
+                </div>
+            </div>
 
-<footer class="footer">
-  <div class="container text-center">
-    <form class="mb-3">
-      <input class="form-control w-50 d-inline-block me-2" placeholder="Subscribe to newsletter" />
-      <button class="btn btn-warning">Subscribe</button>
-    </form>
-    <div><i class="fab fa-twitter me-3"></i><i class="fab fa-facebook me-3"></i><i class="fab fa-youtube"></i></div>
-    <div class="mt-3">© 2025 TechnoSpark Newsroom • Truth or Trick?</div>
-  </div>
-</footer>
+            <!-- Article 4: Swede Gets $1M Ticket for 180 mph Speeding - TRUTH -->
+            <div class="article-card overflow-hidden" data-status="truth">
+                <img src="https://placehold.co/600x350/34D399/1F2937?text=Speeding+Ticket" alt="Speeding Ticket Image" class="w-full h-48 object-cover article-image">
+                <div class="p-6">
+                    <h2 class="text-2xl font-semibold mb-3">Swede Gets $1M Ticket for 180 mph Speeding</h2>
+                    <p class="text-gray-600 mb-4 text-justify">A Swedish driver faces a record-breaking fine after being clocked at 180 mph, with fines linked to income in Sweden.</p>
+                    <a href="#" class="text-blue-600 hover:text-blue-800 font-medium transition-colors duration-200">Read More &rarr;</a>
+                </div>
+            </div>
 
-<script>
-function checkQuiz(){
-  const ans = ['1','3','5','7'];
-  const input = document.getElementById('guessInput').value.split(',').map(x=>x.trim());
-  const right = input.filter(x=>ans.includes(x));
-  const wrong = input.filter(x=>!ans.includes(x));
-  document.getElementById('quizMsg').innerText =
-    `You got ${right.length} correct (${right.join(',')}).` +
-    (wrong.length ? ` Wrong: ${wrong.join(',')}` : '');
-}
-</script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+            <!-- Article 5: Human Robot Malfunctions in Chinese Factory - FAKE -->
+            <div class="article-card overflow-hidden" data-status="fake">
+                <img src="https://placehold.co/600x350/EC4899/1F2937?text=Robot+Malfunction" alt="Robot Malfunction Image" class="w-full h-48 object-cover article-image">
+                <div class="p-6">
+                    <h2 class="text-2xl font-semibold mb-3">Human Robot Malfunctions in Chinese Factory</h2>
+                    <p class="text-gray-600 mb-4 text-justify">A humanoid robot reportedly caused chaos at a factory in China before going viral for its erratic behavior.</p>
+                    <a href="#" class="text-blue-600 hover:text-blue-800 font-medium transition-colors duration-200">Read More &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Article 6: Man Joins His Own Search Party - TRUTH -->
+            <div class="article-card overflow-hidden" data-status="truth">
+                <img src="https://placehold.co/600x350/C084FC/1F2937?text=Search+Party" alt="Search Party Image" class="w-full h-48 object-cover article-image">
+                <div class="p-6">
+                    <h2 class="text-2xl font-semibold mb-3">Man Joins His Own Search Party</h2>
+                    <p class="text-gray-600 mb-4 text-justify">A Turkish man reported missing later showed up in the team looking for himself, unaware he was the subject of the search.</p>
+                    <a href="#" class="text-blue-600 hover:text-blue-800 font-medium transition-colors duration-200">Read More &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Article 7: Live Cockroach Removed from Woman’s Tongue - FAKE -->
+            <div class="article-card overflow-hidden" data-status="fake">
+                <img src="https://placehold.co/600x350/FF8800/1F2937?text=Cockroach+Tongue" alt="Cockroach on Tongue Image" class="w-full h-48 object-cover article-image">
+                <div class="p-6">
+                    <h2 class="text-2xl font-semibold mb-3">Live Cockroach Removed from Woman’s Tongue</h2>
+                    <p class="text-gray-600 mb-4 text-justify">A Californian woman had a live cockroach reportedly hatch from an envelope-sealing, licked source, necessitating medical removal.</p>
+                    <a href="#" class="text-blue-600 hover:text-blue-800 font-medium transition-colors duration-200">Read More &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Article 8: California Bans Non-Consensual Condom Removal ('Stealthing') - TRUTH -->
+            <div class="article-card overflow-hidden" data-status="truth">
+                <img src="https://placehold.co/600x350/5DADE2/1F2937?text=Stealthing+Law" alt="Legal Gavel Image" class="w-full h-48 object-cover article-image">
+                <div class="p-6">
+                    <h2 class="text-2xl font-semibold mb-3">California Bans Non-Consensual Condom Removal ('Stealthing')</h2>
+                    <p class="text-gray-600 mb-4 text-justify">California became the first U.S. state to officially outlaw "stealthing" as a civil offense, recognizing it as a form of sexual battery.</p>
+                    <a href="#" class="text-blue-600 hover:text-blue-800 font-medium transition-colors duration-200">Read More &rarr;</a>
+                </div>
+            </div>
+
+            <!-- NEW Article: Mexico Builds 134-ft Taco - TRUTH -->
+            <div class="article-card overflow-hidden" data-status="truth">
+                <img src="https://placehold.co/600x350/FFC107/1F2937?text=Giant+Taco" alt="Giant Taco Image" class="w-full h-48 object-cover article-image">
+                <div class="p-6">
+                    <h2 class="text-2xl font-semibold mb-3">Mexico Builds 134-ft Taco</h2>
+                    <p class="text-gray-600 mb-4 text-justify">Mexico broke the record with a 40.9 m long taco, made by dozens of volunteers, showcasing culinary ambition.</p>
+                    <a href="#" class="text-blue-600 hover:text-blue-800 font-medium transition-colors duration-200">Read More &rarr;</a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Reveal Button Section -->
+        <div class="text-center mt-12">
+            <button id="revealTruthButton" class="bg-indigo-700 hover:bg-indigo-800 text-white font-bold py-4 px-8 rounded-full shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-indigo-300">
+                Reveal Truth or Fake!
+            </button>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-900 text-white p-6 md:p-8 mt-10">
+        <div class="container mx-auto text-center text-gray-400">
+            <p>&copy; 2025 TechnoSpark Newsroom. All rights reserved.</p>
+            <p>Designed to spark curiosity and critical thinking.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const revealButton = document.getElementById('revealTruthButton');
+            const articleCards = document.querySelectorAll('.article-card');
+
+            revealButton.addEventListener('click', () => {
+                articleCards.forEach(card => {
+                    const status = card.getAttribute('data-status');
+                    const imageElement = card.querySelector('.article-image');
+
+                    if (status === 'truth') {
+                        card.classList.add('reveal-truth');
+                        card.classList.remove('reveal-fake');
+                    } else if (status === 'fake') {
+                        card.classList.add('reveal-fake');
+                        card.classList.remove('reveal-truth');
+                    }
+                    // Optional: remove hover effect after reveal
+                    card.classList.remove('hover:translateY(-5px)', 'hover:shadow-lg');
+                });
+
+                // Disable button after clicking
+                revealButton.disabled = true;
+                revealButton.textContent = "Truth Revealed!";
+                revealButton.classList.remove('bg-indigo-700', 'hover:bg-indigo-800');
+                revealButton.classList.add('bg-gray-500', 'cursor-not-allowed');
+            });
+        });
+    </script>
 </body>
 </html>
+
+
